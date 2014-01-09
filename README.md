@@ -8,5 +8,6 @@ Requirements
 The following packages are required.
 
 * Python 2.7 (not tested with Python 3)
+* [[http://www.numpy.org/|numpy]] (latest version)
 
 
