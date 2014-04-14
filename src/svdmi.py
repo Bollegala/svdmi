@@ -227,7 +227,7 @@ def train_PLSR(x_filename, y_filename, model_filename, n):
     The no. of PLSR components is given by n. 
     """
     X = loadMatrix(x_filename)[0].todense()
-    Y = loadMatrix(x_filename)[0].todense()
+    Y = loadMatrix(y_filename)[0].todense()
     if X.shape[0] != Y.shape[0]:
         sys.stderr.write("X and Y must have equal number of rows!\n")
         raise ValueError
