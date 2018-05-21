@@ -133,7 +133,7 @@ def saveMatrix(mat, rowIndex, matrixFileName, zero_based=True):
     """
     Write the matrix and the row index to external text files.
     """
-    return dump_svmlight_file(mat, rowIndex, F, zero_based)
+    return dump_svmlight_file(mat, rowIndex, matrixFileName, zero_based)
     pass
 
 
@@ -274,7 +274,7 @@ def usage():
     """
     Display help.
     """
-    print """Usage: python svdmi.py -m SVD1 | SVD2 | PMI | PLSR.train | PLSR.pred [SVD1 = U * S^p, SVD2 = U * S^p * V\T]
+    print """Usage: python svdmi.py -m SVD1 | SVD2 | PPMI | PLSR.train | PLSR.pred [SVD1 = U * S^p, SVD2 = U * S^p * V\T]
                                     -i input_file_name or model_file_name for PLSR
                                     -o output_file_name
                                     -n no. of dimensions for SVD or PLSR (int)
@@ -329,7 +329,7 @@ def commandLine():
         if opt == "-v":
             showError = True
     
-    if mode == "pmi" and inputFileName and outputFileName:
+    if mode == "ppmi" and inputFileName and outputFileName:
         mat, rowids = loadMatrix(inputFileName)
         mat = convertPPMI(mat)
         saveMatrix(mat, rowids, outputFileName)
